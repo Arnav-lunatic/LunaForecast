@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/weather-app.png" type="image/x-icon">
+    <title>Luna Forecast</title>
+</head>
+<body>
+    <div class="search">
+
+        <input type="text" placeholder="Search Place" class="searchBar">
+        <img src="assets/search.png" alt="Search" class="searchButton">
+
+    </div>
+
+    <div class="error">
+        Invalid City Name
+    </div>
+    <div class="container">
+
+        <div class="date">Sunday, 8th October</div>
+
+        <div class="time">3:13am</div>
+
+        <div class="placeContainer">
+            <span class="place">India</span>
+            <span class="country"></span>
+        </div>
+        
+        <img src="assets/sun.png" class="weatherImg"></img>
+        <p class="weatherType">Sun</p>
+        
+        <div class="tempContainer">
+            <div class="temp">_&#8451;</div>
+            <div class="minMax">
+                <div class="TempWrapper">
+                    <span class="TempText">Minimun<br>Temperature</span>
+                    <span class="minTempInfo tempInfo">_&#8451</span>
+                </div>
+                
+                <div class="lineBtwn"></div>
+
+                <div class="TempWrapper">
+                    <span class="TempText">Maximun<br>Temperature</span>
+                    <span class="maxTempInfo tempInfo">_&#8451</span>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="other">
+
+            <div class="humiditity">
+                
+                <img class="otherInfoIcon" src="assets/humidity.png">
+
+                <div class="humditityText">
+                    <div class="humideInfo otherInfo">--%</div>
+                    <div class="otherInfoText">Humditity</div>
+                </div>
+
+            </div>
+
+            <div class="humiditity">
+                
+                <img class="otherInfoIcon" src="assets/wind.png">
+
+                <div class="humdityText">
+                    <div class="windInfo otherInfo">--%</div>
+                    <div class="otherInfoText">Wind Speed</div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
