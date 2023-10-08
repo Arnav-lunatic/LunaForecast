@@ -63,8 +63,8 @@ async function weatherCheck(cityName) {
         document.querySelector('.place').innerHTML = data.name
         document.querySelector('.country').innerHTML = data.sys.country
         document.querySelector('.temp').innerHTML = data.main.temp + '&#8451;'
-        document.querySelector('.minTempInfo').innerHTML = data.main.temp_min + '&#8451;'
-        document.querySelector('.maxTempInfo').innerHTML = data.main.temp_max + '&#8451;'
+        document.querySelector('.minTempInfo').innerHTML = data.main.temp_min.toFixed(1) + '&#8451;'
+        document.querySelector('.maxTempInfo').innerHTML = data.main.temp_max.toFixed(1) + '&#8451;'
 
         document.querySelector('.humideInfo').innerHTML = data.main.humidity + '%'
         document.querySelector('.windInfo').innerHTML = data.wind.speed.toFixed(1) + '<span class="speedUnit">km/h</span>'
@@ -77,7 +77,7 @@ async function weatherCheck(cityName) {
         }
         else if (data.weather[0].main === 'Clear') {
             weatherImg.src = "assets/sun.png"
-            container.style.backgroundImage = 'linear-gradient(to bottom, #FFED47, #F4FEC1)'
+            container.style.backgroundImage = 'linear-gradient(to bottom, #FFED47, #ffd724)'
             container.style.color = '#000'
         }
         else if (data.weather[0].main === 'Rain') {
