@@ -27,6 +27,7 @@ function showDate() {
     document.querySelector('.time').innerHTML = `${hour}:${min} ${ampm}`
 }
 
+showDate()
 setInterval(showDate, 60000);
 
 
