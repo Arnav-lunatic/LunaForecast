@@ -2,28 +2,33 @@ const weatherImg = document.querySelector('.weatherImg')
 const container = document.querySelector('.container')
 
 // Date and Time
-const d = new Date()
+function showDate() {
+    const d = new Date()
 
-const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"]
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"]
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-document.querySelector('.date').innerHTML = `${days[d.getDay()]}, ${(d.getDate() < 10) ? "0" + d.getDate() : d.getDate()} ${months[d.getMonth()]}`
+    document.querySelector('.date').innerHTML = `${days[d.getDay()]}, ${(d.getDate() < 10) ? "0" + d.getDate() : d.getDate()} ${months[d.getMonth()]}`
 
-let hour = d.getHours()
-let ampm = 'am'
+    let hour = d.getHours()
+    let ampm = 'am'
 
-if (hour < 12) {
-    hour = d.getHours()
-    ampm = 'am'
-} else {
-    hour = d.getHours() % 12
-    ampm = 'pm'
+    if (hour < 12) {
+        hour = d.getHours()
+        ampm = 'am'
+    } else {
+        hour = d.getHours() % 12
+        ampm = 'pm'
+    }
+    hour = hour < 10 ? "0" + hour : hour
+
+    const min = d.getMinutes() < 10 ? '0'+d.getMinutes() : d.getMinutes()
+
+    document.querySelector('.time').innerHTML = `${hour}:${min} ${ampm}`
 }
-hour = hour < 10 ? "0" + hour : hour
 
-const min = d.getMinutes() < 10 ? '0'+d.getMinutes() : d.getMinutes()
+setInterval(showDate, 60000);
 
-document.querySelector('.time').innerHTML = `${hour}:${min} ${ampm}`
 
 // search
 function displayWeather() {
@@ -70,7 +75,7 @@ async function weatherCheck(cityName) {
         document.querySelector('.windInfo').innerHTML = data.wind.speed.toFixed(1) + '<span class="speedUnit">km/h</span>'
 
 
-        if (data.weather[0].main === 'Cloud') {
+        if (data.weather[0].main === 'Clouds') {
             weatherImg.src = "assets/cloudy.png"
             container.style.backgroundImage = 'linear-gradient(to bottom, #22AED1, #007acc)'
             container.style.color = '#000'
